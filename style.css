@@ -1,6 +1,23 @@
+body{
+ background-image: url("https://t3.ftcdn.net/jpg/00/90/61/12/240_F_90611284_kETICJF0iw73msz53BTvMuNk0OE3zDVa.jpg");
+
+}
 svg{
   cursor:pointer;
-}
+  background-image: url("https://cdn.vectorstock.com/i/composite/16,01/graph-paper-background-vector-3851601.jpg");
+  }
 .block{
   cursor:default;
 }
+#turn{
+  text-align: center;
+  text-decoration: underline;
+  font-style: italic;
+  font-weight: bold;
+  color:#228B22;
+}
+h1{
+  color:#0F52BA;
+}
+
+< --  http://www.geom.uiuc.edu/~demo5337/Group4/Cat.GIF  -- >
