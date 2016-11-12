@@ -2,19 +2,249 @@ var namespace = "http://www.w3.org/2000/svg"
 
 var x=1
 var bomb=0
+var tNt=0
+var cross=0
 var denotate=0
 document.addEventListener('click', player);
-
+document.addEventListener('click', finish);
+document.addEventListener('keypress', restart);
+function restart()
+{
+var s = event.keyCode;
+// spacebar
+if (s == 32) {
+location.reload(true);
+}
+}
 
 function player(){
 if(x == 1 )
 {
   document.getElementById("turn").innerHTML = "Player 1's Turn";
 
+  if(t1==2 && t2==2 && t3==2)
+  {
+    bomb=1
+    denotate=2
+  }
+  if(t4==2 && t5==2 && t6==2)
+  {
+    bomb=2
+    denotate=2
+  }
+  if(t7==2 && t8==2 && t9==2)
+  {
+    bomb=3
+    denotate=2
+  }
+  if(t1==2 && t4==2 && t7==2)
+  {
+    tNt=1
+    denotate=2
+  }
+  if(t2==2 && t5==2 && t8==2)
+  {
+    tNt=2
+    denotate=2
+  }
+  if(t3==2 && t6==2 && t9==2)
+  {
+    tNt=3
+    denotate=2
+  }
+  if(t1==2 && t5==2 && t9==2)
+  {
+    cross=1
+    denotate=2
+  }
+  if(t3==2 && t5==2 && t7==2)
+  {
+    cross=2
+    denotate=2
+  }
+  else if( t1 > 0 && t2 > 0 && t3 > 0 && t4 > 0 && t5 > 0 && t6 > 0 && t7 > 0 && t8 > 0 && t9 > 0)
+{
+  denotate=3
+}
 
 }else{
   document.getElementById("turn").innerHTML = "Player 2's Turn";
+  if(t1==1 && t2==1 && t3==1)
+  {
+    bomb=1
+    denotate=1
+  }
+  if(t4==1 && t5==1 && t6==1)
+  {
+    bomb=2
+    denotate=1
+  }
+  if(t7==1 && t8==1 && t9==1)
+  {
+    bomb=3
+    denotate=1
+  }
+  if(t1==1 && t4==1 && t7==1)
+  {
+    tNt=1
+    denotate=1
+  }
+  if(t2==1 && t5==1 && t8==1)
+  {
+    tNt=2
+    denotate=1
+  }
+  if(t3==1 && t6==1 && t9==1)
+  {
+    tNt=3
+    denotate=1
+  }
+  if(t1==1 && t5==1 && t9==1)
+  {
+    cross=1
+    denotate=1
+  }
+  if(t3==1 && t5==1 && t7==1)
+  {
+    cross=2
+    denotate=1
+  }
+  else if( t1 > 0 && t2 > 0 && t3 > 0 && t4 > 0 && t5 > 0 && t6 > 0 && t7 > 0 && t8 > 0 && t9 > 0)
+  {
+  denotate=3
+  }
 }
+}
+
+function finish()
+{
+  if(bomb==1)
+  {
+      var letterX = document.createElementNS(namespace, "line")
+      letterX.setAttribute("x1", 40)
+      letterX.setAttribute("y1", 200)
+      letterX.setAttribute("x2", 960)
+      letterX.setAttribute("y2", 200)
+      letterX.setAttribute("stroke", "#4c5660")
+      letterX.setAttribute("stroke-width", 20)
+      letterX.setAttribute("stroke-linecap", "round")
+      canvas.appendChild(letterX)
+  }
+  if(bomb==2)
+  {
+      var letterX = document.createElementNS(namespace, "line")
+      letterX.setAttribute("x1", 40)
+      letterX.setAttribute("y1", 500)
+      letterX.setAttribute("x2", 960)
+      letterX.setAttribute("y2", 500)
+      letterX.setAttribute("stroke", "#4c5660")
+      letterX.setAttribute("stroke-width", 20)
+      letterX.setAttribute("stroke-linecap", "round")
+      canvas.appendChild(letterX)
+  }
+  if(bomb==3)
+  {
+      var letterX = document.createElementNS(namespace, "line")
+      letterX.setAttribute("x1", 40)
+      letterX.setAttribute("y1", 800)
+      letterX.setAttribute("x2", 960)
+      letterX.setAttribute("y2", 800)
+      letterX.setAttribute("stroke", "#4c5660")
+      letterX.setAttribute("stroke-width", 20)
+      letterX.setAttribute("stroke-linecap", "round")
+      canvas.appendChild(letterX)
+  }
+  if(tNt==1)
+  {
+      var letterX = document.createElementNS(namespace, "line")
+      letterX.setAttribute("x1", 200)
+      letterX.setAttribute("y1", 40)
+      letterX.setAttribute("x2", 200)
+      letterX.setAttribute("y2", 960)
+      letterX.setAttribute("stroke", "#4c5660")
+      letterX.setAttribute("stroke-width", 20)
+      letterX.setAttribute("stroke-linecap", "round")
+      canvas.appendChild(letterX)
+  }
+  if(tNt==2)
+  {
+      var letterX = document.createElementNS(namespace, "line")
+      letterX.setAttribute("x1", 500)
+      letterX.setAttribute("y1", 40)
+      letterX.setAttribute("x2", 500)
+      letterX.setAttribute("y2", 960)
+      letterX.setAttribute("stroke", "#4c5660")
+      letterX.setAttribute("stroke-width", 20)
+      letterX.setAttribute("stroke-linecap", "round")
+      canvas.appendChild(letterX)
+  }
+  if(tNt==3)
+  {
+      var letterX = document.createElementNS(namespace, "line")
+      letterX.setAttribute("x1", 800)
+      letterX.setAttribute("y1", 40)
+      letterX.setAttribute("x2", 800)
+      letterX.setAttribute("y2", 960)
+      letterX.setAttribute("stroke", "#4c5660")
+      letterX.setAttribute("stroke-width", 20)
+      letterX.setAttribute("stroke-linecap", "round")
+      canvas.appendChild(letterX)
+  }
+  if(cross==1)
+  {
+      var letterX = document.createElementNS(namespace, "line")
+      letterX.setAttribute("x1", 40)
+      letterX.setAttribute("y1", 40)
+      letterX.setAttribute("x2", 960)
+      letterX.setAttribute("y2", 960)
+      letterX.setAttribute("stroke", "#4c5660")
+      letterX.setAttribute("stroke-width", 20)
+      letterX.setAttribute("stroke-linecap", "round")
+      canvas.appendChild(letterX)
+  }
+
+  if(cross==2)
+  {
+      var letterX = document.createElementNS(namespace, "line")
+      letterX.setAttribute("x1", 960)
+      letterX.setAttribute("y1", 40)
+      letterX.setAttribute("x2", 40)
+      letterX.setAttribute("y2", 960)
+      letterX.setAttribute("stroke", "#4c5660")
+      letterX.setAttribute("stroke-width", 20)
+      letterX.setAttribute("stroke-linecap", "round")
+      canvas.appendChild(letterX)
+  }
+  if(denotate==1)
+  {
+    document.getElementById("turn").innerHTML = "~ Player 1 Win ! ~";
+    t1=-1
+    t2=-1
+    t3=-1
+    t4=-1
+    t5=-1
+    t6=-1
+    t7=-1
+    t8=-1
+    t9=-1
+  }
+  else if(denotate==2)
+    {
+      document.getElementById("turn").innerHTML = "~ Player 2 Win ! ~";
+      t1=-1
+      t2=-1
+      t3=-1
+      t4=-1
+      t5=-1
+      t6=-1
+      t7=-1
+      t8=-1
+      t9=-1
+    }
+    else if(denotate==3)
+    {
+      document.getElementById("turn").innerHTML = "~ Tie! ~";
+    }
 }
 
 var canvas = document.getElementById("my-canvas")

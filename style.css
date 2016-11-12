@@ -6,9 +6,7 @@ svg{
   cursor:pointer;
   background-image: url("https://cdn.vectorstock.com/i/composite/16,01/graph-paper-background-vector-3851601.jpg");
   }
-.block{
-  cursor:default;
-}
+
 #turn{
   text-align: center;
   text-decoration: underline;

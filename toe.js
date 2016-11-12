@@ -2,19 +2,22 @@ var namespace = "http://www.w3.org/2000/svg"
 
 var x=1
 var bomb=0
+var tNt=0
+var cross=0
 var denotate=0
+var background=1
 document.addEventListener('click', player);
 document.addEventListener('click', finish);
 document.addEventListener('keypress', restart);
-
 function restart()
 {
 var s = event.keyCode;
 // spacebar
 if (s == 32) {
-location.reload();
+location.reload(true);
 }
 }
+
 
 function player(){
 if(x == 1 )
@@ -38,29 +41,33 @@ if(x == 1 )
   }
   if(t1==2 && t4==2 && t7==2)
   {
-    bomb=4
+    tNt=1
     denotate=2
   }
   if(t2==2 && t5==2 && t8==2)
   {
-    bomb=5
+    tNt=2
     denotate=2
   }
   if(t3==2 && t6==2 && t9==2)
   {
-    bomb=6
+    tNt=3
     denotate=2
   }
   if(t1==2 && t5==2 && t9==2)
   {
-    bomb=7
+    cross=1
     denotate=2
   }
   if(t3==2 && t5==2 && t7==2)
   {
-    bomb=8
+    cross=2
     denotate=2
   }
+  else if( t1 > 0 && t2 > 0 && t3 > 0 && t4 > 0 && t5 > 0 && t6 > 0 && t7 > 0 && t8 > 0 && t9 > 0)
+{
+  denotate=3
+}
 
 }else{
   document.getElementById("turn").innerHTML = "Player 2's Turn";
@@ -81,28 +88,32 @@ if(x == 1 )
   }
   if(t1==1 && t4==1 && t7==1)
   {
-    bomb=4
+    tNt=1
     denotate=1
   }
   if(t2==1 && t5==1 && t8==1)
   {
-    bomb=5
+    tNt=2
     denotate=1
   }
   if(t3==1 && t6==1 && t9==1)
   {
-    bomb=6
+    tNt=3
     denotate=1
   }
   if(t1==1 && t5==1 && t9==1)
   {
-    bomb=7
+    cross=1
     denotate=1
   }
   if(t3==1 && t5==1 && t7==1)
   {
-    bomb=8
+    cross=2
     denotate=1
+  }
+  else if( t1 > 0 && t2 > 0 && t3 > 0 && t4 > 0 && t5 > 0 && t6 > 0 && t7 > 0 && t8 > 0 && t9 > 0)
+  {
+  denotate=3
   }
 }
 }
@@ -145,7 +156,7 @@ function finish()
       letterX.setAttribute("stroke-linecap", "round")
       canvas.appendChild(letterX)
   }
-  if(bomb==4)
+  if(tNt==1)
   {
       var letterX = document.createElementNS(namespace, "line")
       letterX.setAttribute("x1", 200)
@@ -157,7 +168,7 @@ function finish()
       letterX.setAttribute("stroke-linecap", "round")
       canvas.appendChild(letterX)
   }
-  if(bomb==5)
+  if(tNt==2)
   {
       var letterX = document.createElementNS(namespace, "line")
       letterX.setAttribute("x1", 500)
@@ -169,7 +180,7 @@ function finish()
       letterX.setAttribute("stroke-linecap", "round")
       canvas.appendChild(letterX)
   }
-  if(bomb==6)
+  if(tNt==3)
   {
       var letterX = document.createElementNS(namespace, "line")
       letterX.setAttribute("x1", 800)
@@ -181,7 +192,7 @@ function finish()
       letterX.setAttribute("stroke-linecap", "round")
       canvas.appendChild(letterX)
   }
-  if(bomb==7)
+  if(cross==1)
   {
       var letterX = document.createElementNS(namespace, "line")
       letterX.setAttribute("x1", 40)
@@ -194,7 +205,7 @@ function finish()
       canvas.appendChild(letterX)
   }
 
-  if(bomb==8)
+  if(cross==2)
   {
       var letterX = document.createElementNS(namespace, "line")
       letterX.setAttribute("x1", 960)
@@ -208,29 +219,33 @@ function finish()
   }
   if(denotate==1)
   {
-    document.getElementById("turn").innerHTML = "Player 1 Win !";
-    t1=3
-    t2=3
-    t3=3
-    t4=3
-    t5=3
-    t6=3
-    t7=3
-    t8=3
-    t9=3
+    document.getElementById("turn").innerHTML = "~ Player 1 Win ! ~";
+    t1=-1
+    t2=-1
+    t3=-1
+    t4=-1
+    t5=-1
+    t6=-1
+    t7=-1
+    t8=-1
+    t9=-1
   }
   else if(denotate==2)
     {
-      document.getElementById("turn").innerHTML = "Player 2 Win !";
-      t1=3
-      t2=3
-      t3=3
-      t4=3
-      t5=3
-      t6=3
-      t7=3
-      t8=3
-      t9=3
+      document.getElementById("turn").innerHTML = "~ Player 2 Win ! ~";
+      t1=-1
+      t2=-1
+      t3=-1
+      t4=-1
+      t5=-1
+      t6=-1
+      t7=-1
+      t8=-1
+      t9=-1
+    }
+    else if(denotate==3)
+    {
+      document.getElementById("turn").innerHTML = "~ Tie! ~";
     }
 }
 
