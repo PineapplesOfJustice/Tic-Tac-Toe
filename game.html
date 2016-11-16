@@ -5,14 +5,15 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p> <b> '.' </b></p>
     <h1><u><i><center>Tic-Tac-Toe</u></i></h1>
     <p>.</p>
-    <center><svg id="my-canvas" width="56%" viewBox="0 0 1000 1000">
+    <center><svg id="my-canvas" width="56%" viewBox="0 0 1000 1140">
+      <!--The grid-->
       <line x1="50" y1="350" x2="950" y2="350" stroke="green" stroke-width="8"/>
       <line x1="50" y1="650" x2="950" y2="650" stroke="green" stroke-width="8"/>
       <line x1="350" y1="50" x2="350" y2="950" stroke="green" stroke-width="8"/>
       <line x1="650" y1="50" x2="650" y2="950" stroke="green" stroke-width="8"/>
+      <!--Playing squares-->
       <rect x="50" y="50" height="300" width="300" opacity="0" id="square1" onclick="box1()"/>
       <rect x="350" y="50" height="300" width="300" opacity="0" id="square2" onclick="box2()"/>
       <rect x="650" y="50" height="300" width="300" opacity="0" id="square3" onclick="box3()"/>
@@ -22,7 +23,9 @@
       <rect x="50" y="650" height="300" width="300" opacity="0" id="square7" onclick="box7()"/>
       <rect x="350" y="650" height="300" width="300" opacity="0" id="square8" onclick="box8()"/>
       <rect x="650" y="650" height="300" width="300" opacity="0" id="square9" onclick="box9()"/>
-
+      <!--Text-->
+      <text x="120" y="1100" font-family= "Special Elite" font-size="60">Press .   space   .  to restart!</text>
+      <rect x="310" y="1050" height="74" width="225" fill-opacity="0" stroke-linecap="round" stroke="black" stroke-width="8" onclick="restart()"/>
     </svg></center>
     <p>.</p>
     <h2 id = "turn"><center><b><i><u>Player 1's Turn</u></b></i></h2>

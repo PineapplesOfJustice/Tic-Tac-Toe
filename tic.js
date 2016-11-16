@@ -1,121 +1,110 @@
 var namespace = "http://www.w3.org/2000/svg"
 
+//variables
 var x=1
 var bomb=0
 var tNt=0
 var cross=0
 var denotate=0
+
+//events
 document.addEventListener('click', player);
 document.addEventListener('click', finish);
 document.addEventListener('keypress', restart);
-function restart()
-{
-var s = event.keyCode;
-// spacebar
-if (s == 32) {
-location.reload(true);
-}
+
+//press space to restart
+function restart(){
+  var s = event.keyCode;
+  // spacebar
+  if (s == 32 || denotate !=0) {
+    location.reload(true);
+  }
 }
 
+//keep track of who is going and determine the winner
 function player(){
-if(x == 1 )
-{
-  document.getElementById("turn").innerHTML = "Player 1's Turn";
-
-  if(t1==2 && t2==2 && t3==2)
-  {
-    bomb=1
-    denotate=2
+  if(x == 1 ){
+    document.getElementById("turn").innerHTML = "Player 1's Turn";
+    if(t1==2 && t2==2 && t3==2){
+      bomb=1
+      denotate=2
+    }
+    if(t4==2 && t5==2 && t6==2){
+      bomb=2
+      denotate=2
+    }
+    if(t7==2 && t8==2 && t9==2){
+      bomb=3
+      denotate=2
+    }
+    if(t1==2 && t4==2 && t7==2){
+      tNt=1
+      denotate=2
+    }
+    if(t2==2 && t5==2 && t8==2){
+      tNt=2
+      denotate=2
+    }
+    if(t3==2 && t6==2 && t9==2){
+      tNt=3
+      denotate=2
+    }
+    if(t1==2 && t5==2 && t9==2){
+      cross=1
+      denotate=2
+    }
+    if(t3==2 && t5==2 && t7==2){
+      cross=2
+      denotate=2
+    }
+    //if there is a tie
+    else if( t1 > 0 && t2 > 0 && t3 > 0 && t4 > 0 && t5 > 0 && t6 > 0 && t7 > 0 && t8 > 0 && t9 > 0)
+    {
+      denotate=3
+    }
   }
-  if(t4==2 && t5==2 && t6==2)
-  {
-    bomb=2
-    denotate=2
-  }
-  if(t7==2 && t8==2 && t9==2)
-  {
-    bomb=3
-    denotate=2
-  }
-  if(t1==2 && t4==2 && t7==2)
-  {
-    tNt=1
-    denotate=2
-  }
-  if(t2==2 && t5==2 && t8==2)
-  {
-    tNt=2
-    denotate=2
-  }
-  if(t3==2 && t6==2 && t9==2)
-  {
-    tNt=3
-    denotate=2
-  }
-  if(t1==2 && t5==2 && t9==2)
-  {
-    cross=1
-    denotate=2
-  }
-  if(t3==2 && t5==2 && t7==2)
-  {
-    cross=2
-    denotate=2
-  }
-  else if( t1 > 0 && t2 > 0 && t3 > 0 && t4 > 0 && t5 > 0 && t6 > 0 && t7 > 0 && t8 > 0 && t9 > 0)
-{
-  denotate=3
-}
-
-}else{
-  document.getElementById("turn").innerHTML = "Player 2's Turn";
-  if(t1==1 && t2==1 && t3==1)
-  {
-    bomb=1
-    denotate=1
-  }
-  if(t4==1 && t5==1 && t6==1)
-  {
-    bomb=2
-    denotate=1
-  }
-  if(t7==1 && t8==1 && t9==1)
-  {
-    bomb=3
-    denotate=1
-  }
-  if(t1==1 && t4==1 && t7==1)
-  {
-    tNt=1
-    denotate=1
-  }
-  if(t2==1 && t5==1 && t8==1)
-  {
-    tNt=2
-    denotate=1
-  }
-  if(t3==1 && t6==1 && t9==1)
-  {
-    tNt=3
-    denotate=1
-  }
-  if(t1==1 && t5==1 && t9==1)
-  {
-    cross=1
-    denotate=1
-  }
-  if(t3==1 && t5==1 && t7==1)
-  {
-    cross=2
-    denotate=1
-  }
-  else if( t1 > 0 && t2 > 0 && t3 > 0 && t4 > 0 && t5 > 0 && t6 > 0 && t7 > 0 && t8 > 0 && t9 > 0)
-  {
-  denotate=3
+  //continue from above sett player 2
+  else{
+    document.getElementById("turn").innerHTML = "Player 2's Turn";
+    if(t1==1 && t2==1 && t3==1){
+      bomb=1
+      denotate=1
+    }
+    if(t4==1 && t5==1 && t6==1){
+      bomb=2
+      denotate=1
+    }
+    if(t7==1 && t8==1 && t9==1){
+      bomb=3
+      denotate=1
+    }
+    if(t1==1 && t4==1 && t7==1){
+      tNt=1
+      denotate=1
+    }
+    if(t2==1 && t5==1 && t8==1){
+      tNt=2
+      denotate=1
+    }
+    if(t3==1 && t6==1 && t9==1){
+      tNt=3
+      denotate=1
+    }
+    if(t1==1 && t5==1 && t9==1){
+      cross=1
+      denotate=1
+    }
+    if(t3==1 && t5==1 && t7==1){
+      cross=2
+      denotate=1
+    }
+    else if( t1 > 0 && t2 > 0 && t3 > 0 && t4 > 0 && t5 > 0 && t6 > 0 && t7 > 0 && t8 > 0 && t9 > 0){
+      denotate=3
+    }
   }
 }
-}
 
+//this code actually end the game, declare winner and draw lines
 function finish()
 {
   if(bomb==1)
