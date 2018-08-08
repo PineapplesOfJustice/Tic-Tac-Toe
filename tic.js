@@ -29,31 +29,31 @@ function player(){
       bomb=1
       denotate=2
     }
-    if(t4==2 && t5==2 && t6==2){
+    else if(t4==2 && t5==2 && t6==2){
       bomb=2
       denotate=2
     }
-    if(t7==2 && t8==2 && t9==2){
+    else if(t7==2 && t8==2 && t9==2){
       bomb=3
       denotate=2
     }
-    if(t1==2 && t4==2 && t7==2){
+    else if(t1==2 && t4==2 && t7==2){
       tNt=1
       denotate=2
     }
-    if(t2==2 && t5==2 && t8==2){
+    else if(t2==2 && t5==2 && t8==2){
       tNt=2
       denotate=2
     }
-    if(t3==2 && t6==2 && t9==2){
+    else if(t3==2 && t6==2 && t9==2){
       tNt=3
       denotate=2
     }
-    if(t1==2 && t5==2 && t9==2){
+    else if(t1==2 && t5==2 && t9==2){
       cross=1
       denotate=2
     }
-    if(t3==2 && t5==2 && t7==2){
+    else if(t3==2 && t5==2 && t7==2){
       cross=2
       denotate=2
     }
@@ -70,31 +70,31 @@ function player(){
       bomb=1
       denotate=1
     }
-    if(t4==1 && t5==1 && t6==1){
+    else if(t4==1 && t5==1 && t6==1){
       bomb=2
       denotate=1
     }
-    if(t7==1 && t8==1 && t9==1){
+    else if(t7==1 && t8==1 && t9==1){
       bomb=3
       denotate=1
     }
-    if(t1==1 && t4==1 && t7==1){
+    else if(t1==1 && t4==1 && t7==1){
       tNt=1
       denotate=1
     }
-    if(t2==1 && t5==1 && t8==1){
+    else if(t2==1 && t5==1 && t8==1){
       tNt=2
       denotate=1
     }
-    if(t3==1 && t6==1 && t9==1){
+    else if(t3==1 && t6==1 && t9==1){
       tNt=3
       denotate=1
     }
-    if(t1==1 && t5==1 && t9==1){
+    else if(t1==1 && t5==1 && t9==1){
       cross=1
       denotate=1
     }
-    if(t3==1 && t5==1 && t7==1){
+    else if(t3==1 && t5==1 && t7==1){
       cross=2
       denotate=1
     }
